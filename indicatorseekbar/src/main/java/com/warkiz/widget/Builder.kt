@@ -1,90 +1,120 @@
-package com.warkiz.widget;
+package com.warkiz.widget
 
-import android.content.Context;
-import android.content.res.ColorStateList;
-import android.graphics.Color;
-import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.StateListDrawable;
-import android.support.annotation.ArrayRes;
-import android.support.annotation.ColorInt;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
-import android.view.View;
+import android.content.Context
+import android.content.res.ColorStateList
+import android.graphics.Color
+import android.graphics.Typeface
+import android.graphics.drawable.Drawable
+import android.graphics.drawable.StateListDrawable
+import android.support.annotation.ArrayRes
+import android.support.annotation.ColorInt
+import android.support.annotation.LayoutRes
+import android.view.View
+import com.warkiz.widget.SizeUtils.dp2px
+import com.warkiz.widget.SizeUtils.sp2px
 
-/**
- * created by zhuangguangquan on 2018/6/3
- * <p>
- * https://github.com/warkiz/IndicatorSeekBar
- * <p>
- * Donation/打赏:
- * If this library is helpful to you ,you can give me a donation by:
- *
- * @see <a href="https://www.paypal.me/BuyMeACupOfTeaThx">ZhuanGuangQuan's Paypal</a>, or
- * @see <a href="https://github.com/warkiz/IndicatorSeekBar/blob/master/app/src/main/res/mipmap-xxhdpi/wechat_pay.png?raw=true">微信支付</a>, or
- * @see <a href="https://github.com/warkiz/IndicatorSeekBar/blob/master/app/src/main/res/mipmap-xxhdpi/alipay.png?raw=true">支付宝</a>
- * <p>
- */
-
-public class Builder {
-    final Context context;
+class Builder internal constructor( val context: Context) {
     //seek bar
-    float max = 100;
-    float min = 0;
-    float progress = 0;
-    boolean progressValueFloat = false;
-    boolean seekSmoothly = false;
-    boolean r2l = false;
-    boolean userSeekable = true;
-    boolean onlyThumbDraggable = false;
-    boolean clearPadding = false;
-    //indicator
-    int showIndicatorType = IndicatorType.ROUNDED_RECTANGLE;
-    int indicatorColor = Color.parseColor("#FF4081");
-    int indicatorTextColor = Color.parseColor("#FFFFFF");
-    int indicatorTextSize = 0;
-    View indicatorContentView = null;
-    View indicatorTopContentView = null;
-    //track
-    int trackBackgroundSize = 0;
-    int trackBackgroundColor = Color.parseColor("#D7D7D7");
-    int trackProgressSize = 0;
-    int trackProgressColor = Color.parseColor("#FF4081");
-    boolean trackRoundedCorners = false;
-    //thumbText
-    int thumbTextColor = Color.parseColor("#FF4081");
-    boolean showThumbText = false;
-    //thumb
-    int thumbSize = 0;
-    int thumbColor = Color.parseColor("#FF4081");
-    ColorStateList thumbColorStateList = null;
-    Drawable thumbDrawable = null;
-    //tickTexts
-    boolean showTickText;
-    int tickTextsColor = Color.parseColor("#FF4081");
-    int tickTextsSize = 0;
-    String[] tickTextsCustomArray = null;
-    Typeface tickTextsTypeFace = Typeface.DEFAULT;
-    ColorStateList tickTextsColorStateList = null;
-    //tickMarks
-    int tickCount = 0;
-    int showTickMarksType = TickMarkType.NONE;
-    int tickMarksColor = Color.parseColor("#FF4081");
-    int tickMarksSize = 0;
-    Drawable tickMarksDrawable = null;
-    boolean tickMarksEndsHide = false;
-    boolean tickMarksSweptHide = false;
-    ColorStateList tickMarksColorStateList = null;
+    
+    var max: Float = 100f
+    
+    var min: Float = 0f
+    
+    var progress: Float = 0f
+    
+    var progressValueFloat: Boolean = false
+    
+    var seekSmoothly: Boolean = false
+    
+    var r2l: Boolean = false
+    
+    var userSeekable: Boolean = true
+    
+    var onlyThumbDraggable: Boolean = false
+    
+    var clearPadding: Boolean = false
 
-    Builder(Context context) {
-        this.context = context;
-        this.indicatorTextSize = SizeUtils.sp2px(context, 14);
-        this.trackBackgroundSize = SizeUtils.dp2px(context, 2);
-        this.trackProgressSize = SizeUtils.dp2px(context, 2);
-        this.tickMarksSize = SizeUtils.dp2px(context, 10);
-        this.tickTextsSize = SizeUtils.sp2px(context, 13);
-        this.thumbSize = SizeUtils.dp2px(context, 14);
+    //indicator
+    
+    var showIndicatorType: Int = IndicatorType.ROUNDED_RECTANGLE
+    
+    var indicatorColor: Int = Color.parseColor("#FF4081")
+    
+    var indicatorTextColor: Int = Color.parseColor("#FFFFFF")
+    
+    var indicatorTextSize: Int = 0
+    
+    var indicatorContentView: View? = null
+    
+    var indicatorTopContentView: View? = null
+
+    //track
+    
+    var trackBackgroundSize: Int = 0
+    
+    var trackBackgroundColor: Int = Color.parseColor("#D7D7D7")
+    
+    var trackProgressSize: Int = 0
+    
+    var trackProgressColor: Int = Color.parseColor("#FF4081")
+    
+    var trackRoundedCorners: Boolean = false
+
+    //thumbText
+    
+    var thumbTextColor: Int = Color.parseColor("#FF4081")
+    
+    var showThumbText: Boolean = false
+
+    //thumb
+    
+    var thumbSize: Int = 0
+    
+    var thumbColor: Int = Color.parseColor("#FF4081")
+    
+    var thumbColorStateList: ColorStateList? = null
+    
+    var thumbDrawable: Drawable? = null
+
+    //tickTexts
+    
+    var showTickText: Boolean = false
+    
+    var tickTextsColor: Int = Color.parseColor("#FF4081")
+    
+    var tickTextsSize: Int = 0
+    
+    var tickTextsCustomArray: Array<String>? = null
+    
+    var tickTextsTypeFace: Typeface = Typeface.DEFAULT
+    
+    var tickTextsColorStateList: ColorStateList? = null
+
+    //tickMarks
+    
+    var tickCount: Int = 0
+    
+    var showTickMarksType: Int = TickMarkType.NONE
+    
+    var tickMarksColor: Int = Color.parseColor("#FF4081")
+    
+    var tickMarksSize: Int = 0
+    
+    var tickMarksDrawable: Drawable? = null
+    
+    var tickMarksEndsHide: Boolean = false
+    
+    var tickMarksSweptHide: Boolean = false
+    
+    var tickMarksColorStateList: ColorStateList? = null
+
+    init {
+        this.indicatorTextSize = sp2px(context, 14f)
+        this.trackBackgroundSize = dp2px(context, 2f)
+        this.trackProgressSize = dp2px(context, 2f)
+        this.tickMarksSize = dp2px(context, 10f)
+        this.tickTextsSize = sp2px(context, 13f)
+        this.thumbSize = dp2px(context, 14f)
     }
 
     /**
@@ -92,8 +122,8 @@ public class Builder {
      *
      * @return IndicatorSeekBar
      */
-    public IndicatorSeekBar build() {
-        return new IndicatorSeekBar(this);
+    fun build(): IndicatorSeekBar {
+        return IndicatorSeekBar(this)
     }
 
     /**
@@ -102,9 +132,9 @@ public class Builder {
      * @param max the max range
      * @return Builder
      */
-    public Builder max(float max) {
-        this.max = max;
-        return this;
+    fun max(max: Float): Builder {
+        this.max = max
+        return this
     }
 
     /**
@@ -113,9 +143,9 @@ public class Builder {
      * @param min the min range
      * @return Builder
      */
-    public Builder min(float min) {
-        this.min = min;
-        return this;
+    fun min(min: Float): Builder {
+        this.min = min
+        return this
     }
 
     /**
@@ -124,9 +154,9 @@ public class Builder {
      * @param progress the current level of seek bar
      * @return Builder
      */
-    public Builder progress(float progress) {
-        this.progress = progress;
-        return this;
+    fun progress(progress: Float): Builder {
+        this.progress = progress
+        return this
     }
 
     /**
@@ -135,9 +165,9 @@ public class Builder {
      * @param isFloatProgress true for float progress,default false.
      * @return Builder
      */
-    public Builder progressValueFloat(boolean isFloatProgress) {
-        this.progressValueFloat = isFloatProgress;
-        return this;
+    fun progressValueFloat(isFloatProgress: Boolean): Builder {
+        this.progressValueFloat = isFloatProgress
+        return this
     }
 
     /**
@@ -146,9 +176,9 @@ public class Builder {
      * @param seekSmoothly true for seek continuously ignore having tickMarks.
      * @return Builder
      */
-    public Builder seekSmoothly(boolean seekSmoothly) {
-        this.seekSmoothly = seekSmoothly;
-        return this;
+    fun seekSmoothly(seekSmoothly: Boolean): Builder {
+        this.seekSmoothly = seekSmoothly
+        return this
     }
 
     /**
@@ -157,9 +187,9 @@ public class Builder {
      * @param r2l true for local which read text from right to left
      * @return Builder
      */
-    public Builder r2l(boolean r2l) {
-        this.r2l = r2l;
-        return this;
+    fun r2l(r2l: Boolean): Builder {
+        this.r2l = r2l
+        return this
     }
 
     /**
@@ -168,9 +198,9 @@ public class Builder {
      * @param clearPadding true to clear the default padding, false to keep.
      * @return Builder
      */
-    public Builder clearPadding(boolean clearPadding) {
-        this.clearPadding = clearPadding;
-        return this;
+    fun clearPadding(clearPadding: Boolean): Builder {
+        this.clearPadding = clearPadding
+        return this
     }
 
     /**
@@ -179,9 +209,9 @@ public class Builder {
      * @param userSeekable true user can seek.
      * @return Builder
      */
-    public Builder userSeekable(boolean userSeekable) {
-        this.userSeekable = userSeekable;
-        return this;
+    fun userSeekable(userSeekable: Boolean): Builder {
+        this.userSeekable = userSeekable
+        return this
     }
 
     /**
@@ -190,25 +220,25 @@ public class Builder {
      * @param onlyThumbDraggable true for seeking only by drag thumb. default false;
      * @return Builder
      */
-    public Builder onlyThumbDraggable(boolean onlyThumbDraggable) {
-        this.onlyThumbDraggable = onlyThumbDraggable;
-        return this;
+    fun onlyThumbDraggable(onlyThumbDraggable: Boolean): Builder {
+        this.onlyThumbDraggable = onlyThumbDraggable
+        return this
     }
 
     /**
      * call this method to show different shape of indicator.
      *
-     * @param showIndicatorType see{@link IndicatorType}
-     *                          IndicatorType.NONE;
-     *                          IndicatorType.CIRCULAR_BUBBLE;
-     *                          IndicatorType.ROUNDED_RECTANGLE;
-     *                          IndicatorType.RECTANGLE;
-     *                          IndicatorType.CUSTOM;
+     * @param showIndicatorType see[IndicatorType]
+     * IndicatorType.NONE;
+     * IndicatorType.CIRCULAR_BUBBLE;
+     * IndicatorType.ROUNDED_RECTANGLE;
+     * IndicatorType.RECTANGLE;
+     * IndicatorType.CUSTOM;
      * @return Builder
      */
-    public Builder showIndicatorType(int showIndicatorType) {
-        this.showIndicatorType = showIndicatorType;
-        return this;
+    fun showIndicatorType(showIndicatorType: Int): Builder {
+        this.showIndicatorType = showIndicatorType
+        return this
     }
 
     /**
@@ -217,9 +247,9 @@ public class Builder {
      * @param indicatorColor colorInt
      * @return Builder
      */
-    public Builder indicatorColor(@ColorInt int indicatorColor) {
-        this.indicatorColor = indicatorColor;
-        return this;
+    fun indicatorColor(@ColorInt indicatorColor: Int): Builder {
+        this.indicatorColor = indicatorColor
+        return this
     }
 
     /**
@@ -228,9 +258,9 @@ public class Builder {
      * @param indicatorTextColor ColorInt
      * @return Builder
      */
-    public Builder indicatorTextColor(@ColorInt int indicatorTextColor) {
-        this.indicatorTextColor = indicatorTextColor;
-        return this;
+    fun indicatorTextColor(@ColorInt indicatorTextColor: Int): Builder {
+        this.indicatorTextColor = indicatorTextColor
+        return this
     }
 
     /**
@@ -239,9 +269,9 @@ public class Builder {
      * @param indicatorTextSize The scaled pixel size.
      * @return Builder
      */
-    public Builder indicatorTextSize(int indicatorTextSize) {
-        this.indicatorTextSize = SizeUtils.sp2px(context, indicatorTextSize);
-        return this;
+    fun indicatorTextSize(indicatorTextSize: Int): Builder {
+        this.indicatorTextSize = sp2px(context, indicatorTextSize.toFloat())
+        return this
     }
 
     /**
@@ -250,9 +280,9 @@ public class Builder {
      * @param indicatorContentView the custom indicator view
      * @return Builder
      */
-    public Builder indicatorContentView(@NonNull View indicatorContentView) {
-        this.indicatorContentView = indicatorContentView;
-        return this;
+    fun indicatorContentView(indicatorContentView: View): Builder {
+        this.indicatorContentView = indicatorContentView
+        return this
     }
 
     /**
@@ -261,9 +291,9 @@ public class Builder {
      * @param layoutId the custom indicator layout identify
      * @return Builder
      */
-    public Builder indicatorContentViewLayoutId(@LayoutRes int layoutId) {
-        this.indicatorContentView = View.inflate(context, layoutId, null);
-        return this;
+    fun indicatorContentViewLayoutId(@LayoutRes layoutId: Int): Builder {
+        this.indicatorContentView = View.inflate(context, layoutId, null)
+        return this
     }
 
     /**
@@ -273,9 +303,9 @@ public class Builder {
      * @param topContentView the custom indicator top content view
      * @return Builder
      */
-    public Builder indicatorTopContentView(View topContentView) {
-        this.indicatorTopContentView = topContentView;
-        return this;
+    fun indicatorTopContentView(topContentView: View?): Builder {
+        this.indicatorTopContentView = topContentView
+        return this
     }
 
     /**
@@ -285,9 +315,9 @@ public class Builder {
      * @param layoutId the custom view for indicator top content layout identify.
      * @return Builder
      */
-    public Builder indicatorTopContentViewLayoutId(@LayoutRes int layoutId) {
-        this.indicatorTopContentView = View.inflate(context, layoutId, null);
-        return this;
+    fun indicatorTopContentViewLayoutId(@LayoutRes layoutId: Int): Builder {
+        this.indicatorTopContentView = View.inflate(context, layoutId, null)
+        return this
     }
 
 
@@ -297,9 +327,9 @@ public class Builder {
      * @param trackBackgroundSize The dp size.
      * @return Builder
      */
-    public Builder trackBackgroundSize(int trackBackgroundSize) {
-        this.trackBackgroundSize = SizeUtils.dp2px(context, trackBackgroundSize);
-        return this;
+    fun trackBackgroundSize(trackBackgroundSize: Int): Builder {
+        this.trackBackgroundSize = dp2px(context, trackBackgroundSize.toFloat())
+        return this
     }
 
     /**
@@ -308,9 +338,9 @@ public class Builder {
      * @param trackBackgroundColor colorInt
      * @return Builder
      */
-    public Builder trackBackgroundColor(@ColorInt int trackBackgroundColor) {
-        this.trackBackgroundColor = trackBackgroundColor;
-        return this;
+    fun trackBackgroundColor(@ColorInt trackBackgroundColor: Int): Builder {
+        this.trackBackgroundColor = trackBackgroundColor
+        return this
     }
 
     /**
@@ -319,9 +349,9 @@ public class Builder {
      * @param trackProgressSize The dp size.
      * @return Builder
      */
-    public Builder trackProgressSize(int trackProgressSize) {
-        this.trackProgressSize = SizeUtils.dp2px(context, trackProgressSize);
-        return this;
+    fun trackProgressSize(trackProgressSize: Int): Builder {
+        this.trackProgressSize = dp2px(context, trackProgressSize.toFloat())
+        return this
     }
 
     /**
@@ -330,9 +360,9 @@ public class Builder {
      * @param trackProgressColor colorInt
      * @return Builder
      */
-    public Builder trackProgressColor(@ColorInt int trackProgressColor) {
-        this.trackProgressColor = trackProgressColor;
-        return this;
+    fun trackProgressColor(@ColorInt trackProgressColor: Int): Builder {
+        this.trackProgressColor = trackProgressColor
+        return this
     }
 
     /**
@@ -341,9 +371,9 @@ public class Builder {
      * @param trackRoundedCorners false to show square corners.
      * @return Builder
      */
-    public Builder trackRoundedCorners(boolean trackRoundedCorners) {
-        this.trackRoundedCorners = trackRoundedCorners;
-        return this;
+    fun trackRoundedCorners(trackRoundedCorners: Boolean): Builder {
+        this.trackRoundedCorners = trackRoundedCorners
+        return this
     }
 
     /**
@@ -352,9 +382,9 @@ public class Builder {
      * @param thumbTextColor colorInt
      * @return Builder
      */
-    public Builder thumbTextColor(@ColorInt int thumbTextColor) {
-        this.thumbTextColor = thumbTextColor;
-        return this;
+    fun thumbTextColor(@ColorInt thumbTextColor: Int): Builder {
+        this.thumbTextColor = thumbTextColor
+        return this
     }
 
     /**
@@ -363,9 +393,9 @@ public class Builder {
      * @param showThumbText show the text below thumb or not
      * @return Builder
      */
-    public Builder showThumbText(boolean showThumbText) {
-        this.showThumbText = showThumbText;
-        return this;
+    fun showThumbText(showThumbText: Boolean): Builder {
+        this.showThumbText = showThumbText
+        return this
     }
 
     /**
@@ -374,9 +404,9 @@ public class Builder {
      * @param thumbColor colorInt
      * @return Builder
      */
-    public Builder thumbColor(@ColorInt int thumbColor) {
-        this.thumbColor = thumbColor;
-        return this;
+    fun thumbColor(@ColorInt thumbColor: Int): Builder {
+        this.thumbColor = thumbColor
+        return this
     }
 
     /**
@@ -391,9 +421,9 @@ public class Builder {
     //<item android:color="@color/colorAccent" android:state_pressed="true" />  <!--this color is for thumb which is at pressing status-->
     //<item android:color="@color/color_blue" />                                <!--for thumb which is at normal status-->
     //</selector>
-    public Builder thumbColorStateList(@NonNull ColorStateList thumbColorStateList) {
-        this.thumbColorStateList = thumbColorStateList;
-        return this;
+    fun thumbColorStateList(thumbColorStateList: ColorStateList): Builder {
+        this.thumbColorStateList = thumbColorStateList
+        return this
     }
 
     /**
@@ -402,9 +432,9 @@ public class Builder {
      * @param thumbSize The dp size.
      * @return Builder
      */
-    public Builder thumbSize(int thumbSize) {
-        this.thumbSize = SizeUtils.dp2px(context, thumbSize);
-        return this;
+    fun thumbSize(thumbSize: Int): Builder {
+        this.thumbSize = dp2px(context, thumbSize.toFloat())
+        return this
     }
 
     /**
@@ -413,9 +443,9 @@ public class Builder {
      * @param thumbDrawable the drawable for thumb.
      * @return Builder
      */
-    public Builder thumbDrawable(@NonNull Drawable thumbDrawable) {
-        this.thumbDrawable = thumbDrawable;
-        return this;
+    fun thumbDrawable(thumbDrawable: Drawable): Builder {
+        this.thumbDrawable = thumbDrawable
+        return this
     }
 
     /**
@@ -423,7 +453,8 @@ public class Builder {
      *
      * @param thumbStateListDrawable the drawable show as Thumb.
      * @return Builder
-     * <p>
+     *
+     *
      * selector format:
      */
     //<?xml version="1.0" encoding="utf-8"?>
@@ -431,9 +462,9 @@ public class Builder {
     //<item android:drawable="Your drawableA" android:state_pressed="true" />  <!--this drawable is for thumb when pressing-->
     //<item android:drawable="Your drawableB" />  < !--for thumb when normal-->
     //</selector>
-    public Builder thumbDrawable(@NonNull StateListDrawable thumbStateListDrawable) {
-        this.thumbDrawable = thumbStateListDrawable;
-        return this;
+    fun thumbDrawable(thumbStateListDrawable: StateListDrawable): Builder {
+        this.thumbDrawable = thumbStateListDrawable
+        return this
     }
 
 
@@ -443,9 +474,9 @@ public class Builder {
      * @param showTickText show the text below track or not.
      * @return Builder
      */
-    public Builder showTickTexts(boolean showTickText) {
-        this.showTickText = showTickText;
-        return this;
+    fun showTickTexts(showTickText: Boolean): Builder {
+        this.showTickText = showTickText
+        return this
     }
 
     /**
@@ -454,9 +485,9 @@ public class Builder {
      * @param tickTextsColor ColorInt
      * @return Builder
      */
-    public Builder tickTextsColor(@ColorInt int tickTextsColor) {
-        this.tickTextsColor = tickTextsColor;
-        return this;
+    fun tickTextsColor(@ColorInt tickTextsColor: Int): Builder {
+        this.tickTextsColor = tickTextsColor
+        return this
     }
 
     /**
@@ -472,9 +503,9 @@ public class Builder {
     //<item android:color="@color/color_blue" android:state_hovered="true" />     <!--for thumb below text-->
     //<item android:color="@color/color_gray" />                                 <!--for texts those are at right side of thumb-->
     //</selector>
-    public Builder tickTextsColorStateList(@NonNull ColorStateList tickTextsColorStateList) {
-        this.tickTextsColorStateList = tickTextsColorStateList;
-        return this;
+    fun tickTextsColorStateList(tickTextsColorStateList: ColorStateList): Builder {
+        this.tickTextsColorStateList = tickTextsColorStateList
+        return this
     }
 
     /**
@@ -483,9 +514,9 @@ public class Builder {
      * @param tickTextsSize The scaled pixel size.
      * @return Builder
      */
-    public Builder tickTextsSize(int tickTextsSize) {
-        this.tickTextsSize = SizeUtils.sp2px(context, tickTextsSize);
-        return this;
+    fun tickTextsSize(tickTextsSize: Int): Builder {
+        this.tickTextsSize = sp2px(context, tickTextsSize.toFloat())
+        return this
     }
 
     /**
@@ -494,9 +525,9 @@ public class Builder {
      * @param tickTextsArray the length should same as tickCount.
      * @return Builder
      */
-    public Builder tickTextsArray(String[] tickTextsArray) {
-        this.tickTextsCustomArray = tickTextsArray;
-        return this;
+    fun tickTextsArray(tickTextsArray: Array<String>?): Builder {
+        this.tickTextsCustomArray = tickTextsArray
+        return this
     }
 
 
@@ -506,9 +537,9 @@ public class Builder {
      * @param tickTextsArray the length should same as tickNum.
      * @return Builder
      */
-    public Builder tickTextsArray(@ArrayRes int tickTextsArray) {
-        this.tickTextsCustomArray = context.getResources().getStringArray(tickTextsArray);
-        return this;
+    fun tickTextsArray(@ArrayRes tickTextsArray: Int): Builder {
+        this.tickTextsCustomArray = context.resources.getStringArray(tickTextsArray)
+        return this
     }
 
     /**
@@ -517,36 +548,36 @@ public class Builder {
      * @param tickTextsTypeFace The text textTypeface.
      * @return Builder
      */
-    public Builder tickTextsTypeFace(Typeface tickTextsTypeFace) {
-        this.tickTextsTypeFace = tickTextsTypeFace;
-        return this;
+    fun tickTextsTypeFace(tickTextsTypeFace: Typeface): Builder {
+        this.tickTextsTypeFace = tickTextsTypeFace
+        return this
     }
 
     /**
      * set the tickMarks number.
      *
      * @param tickCount the tickMarks count show on seek bar.
-     *                  if you want the seek bar's block size is N , this tickCount should be N+1.
+     * if you want the seek bar's block size is N , this tickCount should be N+1.
      * @return Builder
      */
-    public Builder tickCount(int tickCount) {
-        this.tickCount = tickCount;
-        return this;
+    fun tickCount(tickCount: Int): Builder {
+        this.tickCount = tickCount
+        return this
     }
 
     /**
      * call this method to show different tickMark shape.
      *
-     * @param tickMarksType see{@link TickMarkType}
-     *                      TickMarkType.NONE;
-     *                      TickMarkType.OVAL;
-     *                      TickMarkType.SQUARE;
-     *                      TickMarkType.DIVIDER;
+     * @param tickMarksType see[TickMarkType]
+     * TickMarkType.NONE;
+     * TickMarkType.OVAL;
+     * TickMarkType.SQUARE;
+     * TickMarkType.DIVIDER;
      * @return Builder
      */
-    public Builder showTickMarksType(int tickMarksType) {
-        this.showTickMarksType = tickMarksType;
-        return this;
+    fun showTickMarksType(tickMarksType: Int): Builder {
+        this.showTickMarksType = tickMarksType
+        return this
     }
 
     /**
@@ -555,9 +586,9 @@ public class Builder {
      * @param tickMarksColor colorInt
      * @return Builder
      */
-    public Builder tickMarksColor(@ColorInt int tickMarksColor) {
-        this.tickMarksColor = tickMarksColor;
-        return this;
+    fun tickMarksColor(@ColorInt tickMarksColor: Int): Builder {
+        this.tickMarksColor = tickMarksColor
+        return this
     }
 
     /**
@@ -572,9 +603,9 @@ public class Builder {
     //<item android:color="@color/colorAccent" android:state_selected="true" />  <!--this color is for marks those are at left side of thumb-->
     //<item android:color="@color/color_gray" />                                 <!--for marks those are at right side of thumb-->
     //</selector>
-    public Builder tickMarksColor(@NonNull ColorStateList tickMarksColorStateList) {
-        this.tickMarksColorStateList = tickMarksColorStateList;
-        return this;
+    fun tickMarksColor(tickMarksColorStateList: ColorStateList): Builder {
+        this.tickMarksColorStateList = tickMarksColorStateList
+        return this
     }
 
     /**
@@ -583,9 +614,9 @@ public class Builder {
      * @param tickMarksSize the dp size.
      * @return Builder
      */
-    public Builder tickMarksSize(int tickMarksSize) {
-        this.tickMarksSize = SizeUtils.dp2px(context, tickMarksSize);
-        return this;
+    fun tickMarksSize(tickMarksSize: Int): Builder {
+        this.tickMarksSize = dp2px(context, tickMarksSize.toFloat())
+        return this
     }
 
     /**
@@ -594,9 +625,9 @@ public class Builder {
      * @param tickMarksDrawable the drawable show as tickMark.
      * @return Builder
      */
-    public Builder tickMarksDrawable(@NonNull Drawable tickMarksDrawable) {
-        this.tickMarksDrawable = tickMarksDrawable;
-        return this;
+    fun tickMarksDrawable(tickMarksDrawable: Drawable): Builder {
+        this.tickMarksDrawable = tickMarksDrawable
+        return this
     }
 
     /**
@@ -611,9 +642,9 @@ public class Builder {
     //<item android:drawable="@mipmap/ic_launcher_round" android:state_pressed="true" />  <!--this drawable is for thumb when pressing-->
     //<item android:drawable="@mipmap/ic_launcher" />  <!--for thumb when normal-->
     //</selector>
-    public Builder tickMarksDrawable(@NonNull StateListDrawable tickMarksStateListDrawable) {
-        this.tickMarksDrawable = tickMarksStateListDrawable;
-        return this;
+    fun tickMarksDrawable(tickMarksStateListDrawable: StateListDrawable): Builder {
+        this.tickMarksDrawable = tickMarksStateListDrawable
+        return this
     }
 
     /**
@@ -622,9 +653,9 @@ public class Builder {
      * @param tickMarksEndsHide true for hide.
      * @return Builder
      */
-    public Builder tickMarksEndsHide(boolean tickMarksEndsHide) {
-        this.tickMarksEndsHide = tickMarksEndsHide;
-        return this;
+    fun tickMarksEndsHide(tickMarksEndsHide: Boolean): Builder {
+        this.tickMarksEndsHide = tickMarksEndsHide
+        return this
     }
 
     /**
@@ -633,9 +664,8 @@ public class Builder {
      * @param tickMarksSweptHide true for hide.
      * @return Builder
      */
-    public Builder tickMarksSweptHide(boolean tickMarksSweptHide) {
-        this.tickMarksSweptHide = tickMarksSweptHide;
-        return this;
+    fun tickMarksSweptHide(tickMarksSweptHide: Boolean): Builder {
+        this.tickMarksSweptHide = tickMarksSweptHide
+        return this
     }
-
 }
