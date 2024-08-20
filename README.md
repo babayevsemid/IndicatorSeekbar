@@ -17,7 +17,6 @@ dependencies {
 
 ### Use
 
-```
 <com.samid.widget.IndicatorSeekBar
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -30,3 +29,5 @@ dependencies {
                 app:isb_tick_texts_array="@array/small_normal_middle_large_length_7"
                 app:isb_tick_texts_color="@color/color_blue"
                 app:isb_ticks_count="7" />
+
+```
